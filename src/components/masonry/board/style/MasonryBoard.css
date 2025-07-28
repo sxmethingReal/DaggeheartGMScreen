@@ -1,0 +1,14 @@
+.masonry-grid {
+  display: flex;
+  margin-left: -16px; /* gutter size offset */
+  width: auto;
+}
+.masonry-grid_column {
+  padding-left: 16px; /* gutter size */
+  background-clip: padding-box;
+}
+
+/* Style for cards inside masonry */
+.masonry-grid_column > * {
+  margin-bottom: 16px;
+}
