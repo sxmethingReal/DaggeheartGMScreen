@@ -1,0 +1,104 @@
+/* Colors */
+	:root {		
+		color-scheme: light;		
+		--color-text: #1a162f;
+		--color-card-bg: #fbf5e8;
+		--color-li-bg: #edead0;
+		--color-accent-1: #526536;
+		--color-accent-2: #967b2f;
+
+		--color-btn-close: #f6404e;
+		--color-btn-info: #409bf6;
+		--color-btn-edit: #f6a740;
+		--color-btn-drag: #7e9362;
+		--color-fear: #8c40f6;
+		--color-hope: #f6cf40;
+		--color-crit: #d66809;
+		--color-plus: #a4c716;
+		--color-minus: #c51648;
+
+		--color-menu: #15151550;
+
+		--font-title: "Fondamento", cursive;
+		--font-body: "Quicksand", sans-serif;
+
+		text-rendering: optimizeLegibility;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+
+	}
+
+	.dark-mode {
+		color-scheme: dark;
+		--color-text: #dedede;
+		--color-card-bg: #130c20;
+		--color-li-bg: #261b3c;
+		--color-accent-1: #6ad9c4;
+		--color-accent-2: #9f0f6f;
+
+		--color-btn-close: #f51b2d;
+		--color-btn-info: #f5be19;
+		--color-btn-edit: #8ef519 ;
+		--color-btn-drag: #6a7dd9;
+		--color-fear: #b252fa;
+		--color-hope: #fadb46;
+		--color-crit: #fa9c35;
+		--color-plus: #c9f519;
+		--color-minus: #f51957;
+
+		--color-menu: #15151550;
+	}
+
+.hope, .fear{
+	color: #111111a0;
+	padding: 0 5px;
+	font-weight: 600;
+	border-radius: 12px;
+}
+.hope{
+	background-color: var(--color-hope);
+
+}
+.fear{
+	background-color: var(--color-fear);
+}
+.crit{
+	font-weight: 600;
+	color: var(--color-crit);
+}
+
+p{margin: 0}
+p + p{margin: 0.6rem 0 0 0}
+
+
+
+
+
+/* Document */
+	html {
+		font-size: clamp(14px, 1.05vw, 40px);
+		overflow: hidden;
+	}
+
+	body {
+	/* Font*/
+		font-family: var(--font-body);
+		font-style: normal;
+		color: var(--color-text);
+	/* Alignment */
+		height: 100vh;
+		display: flex;
+		flex-wrap: wrap;
+		align-items: flex-start;
+		margin: 0;
+	/* Background */
+		background-color: var(--color-li-bg);
+		background-image: url('../images/background.jpg');
+		background-position: center bottom;
+		background-size: cover;
+		background-attachment: fixed;
+	/* Scroll Snap */
+		overflow-y: scroll;
+		scroll-snap-type: y proximity;
+		overscroll-behavior-y: contain;
+	}

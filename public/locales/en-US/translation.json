@@ -1,0 +1,11 @@
+{
+	"cardAttributes": {
+		"title": "Atributos de Personagem",
+		"agility": "<strong>Agilidade:</strong> Correr, saltar, manobrar",
+		"strength": "<strong>Força:</strong> Levantar, quebrar, segurar",
+		"finesse": "<strong>Finesse:</strong> Destreza, tato, delicadeza",
+		"instinct": "<strong>Instinto:</strong> Perceber, sentir, sobreviver",
+		"presence": "<strong>Presença:</strong> Encantar, inspirar, enganar",
+		"knowledge": "<strong>Conhecimento:</strong> Recordar, analisar, compreender"
+	}
+}
