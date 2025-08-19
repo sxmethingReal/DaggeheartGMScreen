@@ -1,22 +1,20 @@
 import { CardContext, type CardContextType } from "./CardContext";
-import { v4 as uuid } from 'uuid';
 
-type CardProviderProps<Extras = {}> = {
-	cardType: string;
-	vectorId: string;
+type CardProviderProps<Extras = {}> = CardContextType<Extras> & {
 	children: React.ReactNode;
-} & Extras;
+};
 
-export function CardProvider<Extras = {}>({ cardType, vectorId, children, ...extras }: CardProviderProps<Extras>) {
-	const card: CardContextType<Extras> = {
-		id: "crd-" + uuid(),
-		cardType,
-		vectorId,
-		...extras as Extras,
-	};
+export function CardProvider<Extras = {}>({
+	cardId,
+	cardType,
+	deckId,
+	children,
+	...extras
+}: CardProviderProps<Extras>) {
+	const value = { cardId, cardType, deckId, ...extras };
 
 	return (
-		<CardContext.Provider value={card}>
+		<CardContext.Provider value={value}>
 			{children}
 		</CardContext.Provider>
 	);

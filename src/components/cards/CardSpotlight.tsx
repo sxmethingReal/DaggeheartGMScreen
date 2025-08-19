@@ -1,5 +1,5 @@
 import { BtnClose, BtnDrag } from "../cardButtons/";
-import { useTranslation } from 'react-i18next'
+import { useTranslation } from "react-i18next";
 import Card from "../atoms/Card.tsx";
 import styled from "styled-components";
 
@@ -13,7 +13,7 @@ function CardSpotlight() {
 	const { t } = useTranslation();
 
 	return (
-		<Card cardType="CardSpotlight" title={t("cardSpotlight.title")} expand={true}>
+		<Card title={t("cardSpotlight.title")} expand={true}>
 			<BtnClose right="0.2rem"/>
 			<BtnDrag right="1.4rem"/>
 

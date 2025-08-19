@@ -1,20 +1,45 @@
-export { default as CardArmrStrss } from './CardArmrStrss'
-export { default as CardAttributes } from './CardAttributes'
-export { default as CardCombat } from './CardCombat'
-export { default as CardConditions } from './CardConditions'
-export { default as CardDeath } from './CardDeath'
-export { default as CardDifficulty } from './CardDifficulty'
-export { default as CardEnemy } from './CardEnemy'
-export { default as CardEnemyStats } from './CardEnemyStats'
-export { default as CardFear } from './CardFear'
-export { default as CardFearTracker } from './CardFearTracker'
-export { default as CardEncounterFear } from './CardEncounterFear'
-export { default as CardHope } from './CardHope'
-export { default as CardImage } from './CardImage'
-export { default as CardPrices } from './CardPrices'
-export { default as CardRange } from './CardRange'
-export { default as CardRest } from './CardRest'
-export { default as CardRolls } from './CardRolls'
-export { default as CardSpotlight } from './CardSpotlight'
-export { default as CardTeamwork } from './CardTeamwork'
-export { default as CardText } from './CardText'
+import CardArmrStrss from './CardArmrStrss'
+import CardAttributes from './CardAttributes'
+import CardCombat from './CardCombat'
+import CardConditions from './CardConditions'
+import CardDeath from './CardDeath'
+import CardDifficulty from './CardDifficulty'
+import CardEnemy from './CardEnemy'
+import CardEnemyStats from './CardEnemyStats'
+import CardFear from './CardFear'
+import CardFearTracker from './CardFearTracker'
+import CardEncounterFear from './CardEncounterFear'
+import CardHope from './CardHope'
+import CardImage from './CardImage'
+import CardPrices from './CardPrices'
+import CardRange from './CardRange'
+import CardRest from './CardRest'
+import CardRolls from './CardRolls'
+import CardSpotlight from './CardSpotlight'
+import CardTeamwork from './CardTeamwork'
+import CardText from './CardText'
+
+const CardComponents: Record<string, React.FC<any>> = {
+  armrStrss: CardArmrStrss,
+  attributes: CardAttributes,
+  combat: CardCombat,
+  conditions: CardConditions,
+  death: CardDeath,
+  difficulty: CardDifficulty,
+  enemy: CardEnemy,
+  enemyStats: CardEnemyStats,
+  fear: CardFear,
+  fearTracker: CardFearTracker,
+  encounterFear: CardEncounterFear,
+  hope: CardHope,
+  image: CardImage,
+  prices: CardPrices,
+  range: CardRange,
+  rest: CardRest,
+  rolls: CardRolls,
+  spotlight: CardSpotlight,
+  teamwork: CardTeamwork,
+  text: CardText,
+};
+
+export default CardComponents;

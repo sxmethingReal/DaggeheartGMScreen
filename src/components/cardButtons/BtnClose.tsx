@@ -1,16 +1,23 @@
 import CardButton, { type CardButtonProps } from "../atoms/CardButton";
 import { IoClose } from "react-icons/io5";
 import useCard from "../../contexts/CardContext";
-import useScreen from "../../contexts/ScreenContext";
+import useBoard from "../../contexts/BoardContext";
 
 type BtnCloseProps = Omit<CardButtonProps, "color" | "children">;
 
 function BtnClose(props: BtnCloseProps) {
-	const card = useCard();
-	const { cardRemove } = useScreen();
+	const { cardId, deckId } = useCard();
+	const { cardRemove } = useBoard();
 
 	return (
-			<CardButton color="var(--color-btn-close)" onClick={() => cardRemove(card)} {...props}>
+			<CardButton
+				color="var(--color-btn-close)"
+				onClick={(event) => {
+					event.stopPropagation();
+					cardRemove(deckId, cardId);
+				}}
+				{...props}
+			>
 				<IoClose/>
 			</CardButton>
 	);

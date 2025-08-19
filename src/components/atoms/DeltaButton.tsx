@@ -5,7 +5,7 @@ export type DeltaButtonProps = {
 	color: string;
 	delta: number;
 	state: number;
-	setState: React.Dispatch<React.SetStateAction<number>>;
+	setState: (value: number) => void;
 	min?: number;
 	max?: number;
 } & React.ButtonHTMLAttributes<HTMLButtonElement>;

@@ -1,14 +1,19 @@
-import { ScreenProvider } from "./contexts/ScreenProvider";
 import PrintFooter from './components/PrintFooter';
-import * as Cards from "./components/cards";
 import './i18n';
+import BoardRender from './components/utils/BoardRender';
+import { BoardProvider } from './contexts/BoardProvider';
 
 function App() {
+
 	return (
-		<ScreenProvider>
-			
-		</ScreenProvider>
+		<>
+			<BoardProvider>
+				<BoardRender/>
+			</BoardProvider>
+			<PrintFooter/>
+		</>
 	);
 }
 
 export default App;
+

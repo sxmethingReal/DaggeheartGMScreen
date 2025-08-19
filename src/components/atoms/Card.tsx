@@ -1,14 +1,15 @@
-import { CardProvider } from "../../contexts/CardProvider.tsx";
 import styled from "styled-components";
+import { AnimatePresence, motion } from "motion/react"
 
 type CardProps = {
-	cardType: string;
 	title?: string;
-	expand?: boolean
+	expand?: boolean;
+	resize?: string;
+	index?: string
 	children: React.ReactNode;
-};
+} & React.HTMLAttributes<HTMLDivElement>;
 
-const StyledCard = styled.div`
+const StyledCard = styled(motion.div)<{ $resize?: string }>`
 	transition: 
 		background-color,
 		color,
@@ -23,8 +24,16 @@ const StyledCard = styled.div`
 	border-radius: 15px;
 	background-color: var(--color-card-bg);
 	box-sizing: border-box;
-	margin: 0;
-	z-index: 1;
+	margin: 0.5rem auto;
+
+	${props => props.$resize && `
+		resize: ${props.$resize};
+		overflow: hidden;
+		min-width: 9rem;
+		width: fit-content;
+		max-width: 98vw;
+		min-height: 2.2344rem;
+	`}
 `;
 
 const StyledTitle = styled.h2`
@@ -35,16 +44,21 @@ const StyledTitle = styled.h2`
 	border-bottom: 3px solid var(--color-accent-2);
 `;
 
-function Card({ cardType, title, expand, children }: CardProps) {
+function Card({ title, expand, resize, children, ...props }: CardProps) {
 
 	return (
-		<CardProvider cardType={cardType}>
-			<StyledCard>
-				{title && <StyledTitle>{title}</StyledTitle>}
-				<div style={{ padding: expand ? "0" : "0.6rem" }}>{children}</div>
-			</StyledCard>
-		</CardProvider>
-	);
+		<StyledCard
+			$resize={resize}
+			initial={{ opacity: 0, scale: 0.4}}
+			animate={{ opacity: 1, scale: 1}}
+			exit={{ opacity: 0, scale: 0.4}}
+			transition={{ duration: 0.3 }}
+			{...props}
+		>
+			{title && <StyledTitle>{title}</StyledTitle>}
+			<div style={{ padding: expand ? "0" : "0.6rem" }}>{children}</div>
+		</StyledCard>
+);
 }
 
 export default Card;

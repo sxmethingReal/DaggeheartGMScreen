@@ -1,6 +1,6 @@
 import { BtnClose, BtnDrag } from "../cardButtons/";
-import { useTranslation } from 'react-i18next'
-import Translate from "../utils/Translate.tsx"
+import { useTranslation } from "react-i18next";
+import Translate from "../utils/Translate.tsx";
 import Card from "../atoms/Card.tsx";
 import List from "../atoms/List.tsx";
 import styled from "styled-components";
@@ -13,7 +13,7 @@ function CardRolls() {
 	const { t } = useTranslation();
 
 	return (
-		<Card cardType="CardRolls" title={t("cardRolls.title")}>
+		<Card title={t("cardRolls.title")}>
 			<BtnClose right="0.2rem"/>
 			<BtnDrag right="1.4rem"/>
 

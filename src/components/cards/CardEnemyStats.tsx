@@ -1,6 +1,6 @@
 import { BtnClose, BtnDrag } from "../cardButtons/";
-import { useTranslation } from 'react-i18next'
-import Translate from "../utils/Translate.tsx"
+import { useTranslation } from "react-i18next";
+import Translate from "../utils/Translate.tsx";
 import Card from "../atoms/Card.tsx";
 import { Table, Head, Body } from "../atoms/Table.tsx";
 
@@ -8,7 +8,7 @@ function CardEnemyStats() {
 	const { t } = useTranslation();
 
 	return (
-		<Card cardType="CardEnemyStats" title={t("cardEnemyStats.title")}>
+		<Card title={t("cardEnemyStats.title")}>
 			<BtnClose right="0.2rem"/>
 			<BtnDrag right="1.4rem"/>
 

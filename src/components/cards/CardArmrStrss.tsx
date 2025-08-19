@@ -1,13 +1,13 @@
 import { BtnClose, BtnDrag } from "../cardButtons/";
-import { useTranslation } from 'react-i18next'
-import Translate from "../utils/Translate.tsx"
+import { useTranslation } from "react-i18next";
+import Translate from "../utils/Translate.tsx";
 import Card from "../atoms/Card.tsx";
 
 function CardArmrStrss() {
 	const { t } = useTranslation();
 
 	return (
-		<Card cardType="CardArmrStrss" title={t("cardArmrStrss.title")}>
+		<Card title={t("cardArmrStrss.title")}>
 			<BtnClose right="0.2rem"/>
 			<BtnDrag right="1.4rem"/>
 

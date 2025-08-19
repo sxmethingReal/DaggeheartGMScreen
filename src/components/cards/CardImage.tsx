@@ -1,9 +1,11 @@
 import { useState } from "react";
-import { BtnClose, BtnDrag } from "../cardButtons/";
-import { useTranslation } from 'react-i18next'
+import { BtnClose, BtnDrag, BtnEdit } from "../cardButtons/";
+import { useTranslation } from "react-i18next";
 import Card from "../atoms/Card.tsx";
 import styled from "styled-components";
 import { TbPhotoShare } from "react-icons/tb";
+import useCard from "../../contexts/CardContext";
+import useBoard from "../../contexts/BoardContext.ts";
 
 const StyledInput = styled.input`
 	width: 83%;
@@ -13,12 +15,15 @@ const StyledInput = styled.input`
 	border: none;
 	outline: none;
 	font-size: 1rem;
+	padding: 0 3.2rem 0 0;
 `;
 
 const StyledView = styled.img`
-	display: none;
 	width: 100%;
 	border-radius: 12px;
+	display: block;
+	user-select: none;
+	z-index: 200;
 `;
 
 const StyledButton = styled.button`
@@ -37,6 +42,7 @@ const StyledButton = styled.button`
 const StyledRow = styled.span`
 	display: inline-flex;
 	width: 100%;
+	min-height: 2.2344rem;
 	align-items: center;
 	gap: 5px;
 	padding: 0 0.4rem;
@@ -44,19 +50,52 @@ const StyledRow = styled.span`
 
 function CardImage() {
 	const { t } = useTranslation();
+	const card = useCard<{ imageUrl?: string }>();
+	const { updateCardExtras } = useBoard();
+
+	const [editing, setEditing] = useState(!card.imageUrl);
+	const [input, setInput] = useState(card.imageUrl ?? "");
+
+	function handleEditClick() {
+		setEditing(true);
+		setInput(card.imageUrl ?? "");
+	}
+
+	function handleInputChange(e: React.ChangeEvent<HTMLInputElement>) {
+		setInput(e.target.value);
+	}
+
+	function handleSave() {
+		if (input) {
+			updateCardExtras(card, "imageUrl", input);
+			setEditing(false);
+		}
+	}
 
 	return (
-		<Card cardType="Image" expand={true}>
+		<Card expand={true} resize="horizontal">
 			<BtnClose right="0.2rem"/>
 			<BtnDrag right="1.4rem"/>
 
+			{editing ? (
 			<StyledRow>
-				<StyledButton>
+				<StyledButton onClick={handleSave}>
 					<TbPhotoShare/>
 				</StyledButton>
-				<StyledInput placeholder={t("cardImage.placeHolder")}/>
+				<StyledInput
+					value={input}
+					onChange={handleInputChange}
+					onKeyDown={(e) => e.key === "Enter" && handleSave()}
+					placeholder={t("cardImage.placeHolder")}
+				/>
 			</StyledRow>
-			<StyledView src=""/>
+			) : (
+				<>
+					<BtnEdit right="2.6rem" onClick={handleEditClick}/>
+					
+					<StyledView src={card.imageUrl}/>
+				</>
+			)}
 		</Card>
 	);
 }

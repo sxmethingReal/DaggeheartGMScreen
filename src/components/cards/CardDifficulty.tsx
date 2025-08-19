@@ -1,6 +1,6 @@
 import { BtnClose, BtnTooltip, BtnDrag } from "../cardButtons/";
-import { useTranslation } from 'react-i18next'
-import Translate from "../utils/Translate.tsx"
+import { useTranslation } from "react-i18next";
+import Translate from "../utils/Translate.tsx";
 import Card from "../atoms/Card.tsx";
 import styled, { css } from "styled-components";
 
@@ -83,7 +83,7 @@ function CardDifficulty() {
 	const { t } = useTranslation();
 
 	return (
-		<Card cardType="CardDifficulty" title={t("cardDifficulty.title")}>
+		<Card title={t("cardDifficulty.title")}>
 			<BtnClose right="0.2rem"/>
 			<BtnDrag right="1.4rem"/>
 			<BtnTooltip right="2.6rem">				
